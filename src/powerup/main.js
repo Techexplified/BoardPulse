@@ -1,3 +1,4 @@
+
 /* global TrelloPowerUp */
 import { isAuthorized } from "../lib/auth.js";
 
@@ -7,68 +8,71 @@ const ICON_URL =
     : "./icons/icon.svg";
 
 TrelloPowerUp.initialize({
-  // Trello queries this capability to decide whether to prompt the member to authorize
   "authorization-status": async function (t) {
     const authorized = await isAuthorized(t);
     return { authorized };
   },
 
-  // Called when Trello prompts authorization
   "show-authorization": function (t) {
     return t.popup({
-      title: "Authorize Insight",
+      title: "Authorize BoardPulse",
       url: "./auth.html",
       height: 320,
     });
   },
 
-  // Called when member opens Power-Up settings from the board menu
   "show-settings": function (t) {
     return t.popup({
-      title: "Insight Settings",
+      title: "BoardPulse Settings",
       url: "./auth.html",
       height: 320,
     });
   },
 
-  // Adds an Insight button in the top board header
- "board-buttons": function () {
-  return [
-    {
-      icon: {
-        dark: ICON_URL,
-        light: ICON_URL,
-      },
-      text: "Insight",
+  "board-buttons": function () {
+    return [
+      {
+        icon: {
+          dark: ICON_URL,
+          light: ICON_URL,
+        },
+        text: "BoardPulse",
 
-      callback: async function (t) {
-        const authorized = await isAuthorized(t);
+        callback: async function (t) {
+          const authorized = await isAuthorized(t);
 
-        if (!authorized) {
+          if (authorized) {
+            return t.modal({
+              title: "BoardPulse",
+              url: t.signUrl("./dashboard.html"),
+              height: 520,
+              fullscreen: false,
+            });
+          }
+
           return t.popup({
-            title: "Authorize Insight",
+            title: "Authorize BoardPulse",
             url: "./auth.html",
             height: 320,
 
-           callback: function (t) {
-  return t.modal({
-    title: "Insight",
-    url: t.signUrl("./dashboard.html"),
-    height: 520,
-    fullscreen: false,
-  });
-},
-          });
-        }
+            callback: async function () {
+              // Check authorization again after the popup closes.
+              const nowAuthorized = await isAuthorized(t);
 
-       return t.modal({
-  
-  url: t.signUrl("./dashboard.html"),
-  height: 520,
-  fullscreen: false,
-});
+              if (!nowAuthorized) {
+                return;
+              }
+
+              return t.modal({
+                title: "BoardPulse",
+                url: t.signUrl("./dashboard.html"),
+                height: 520,
+                fullscreen: false,
+              });
+            },
+          });
+        },
       },
-    },
-  ];
-},
+    ];
+  },
 });
