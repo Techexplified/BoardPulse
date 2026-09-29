@@ -136,7 +136,7 @@ export default function AuthPopup({ t }) {
      <button
   type="button"
   onClick={() => {
-    alert("CONTINUE BUTTON WORKS");
+    t.closePopup();
   }}
   className="auth-btn-primary"
 >
