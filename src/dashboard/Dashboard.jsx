@@ -142,7 +142,7 @@ useEffect(() => {
       setDataLoading(true);
       setDataError(null);
 
-      const t = window.TrelloPowerUp.iframe();
+      
 
       console.log("Loading real Trello data...");
 
