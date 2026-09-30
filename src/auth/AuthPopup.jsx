@@ -153,7 +153,7 @@ export default function AuthPopup({ t }) {
           <InsightIcon width={22} height={22} />
         </div>
         <div>
-<h3 className="auth-title">TEST VERSION 123</h3>          <p className="auth-subtitle">Trello Authorization</p>
+<h3 className="auth-title">BoardPulse</h3>          <p className="auth-subtitle">Trello Authorization</p>
         </div>
       </div>
 
