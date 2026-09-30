@@ -4,8 +4,8 @@ import { isAuthorized } from "../lib/auth.js";
 
 const ICON_URL =
   typeof window !== "undefined" && window.location.origin
-    ? `${window.location.origin}/icons/icon.svg`
-    : "./icons/icon.svg";
+    ? `${window.location.origin}/icons/icon.svg?v=2`
+    : "./icons/icon.svg?v=2";
 
 TrelloPowerUp.initialize({
   "authorization-status": async function (t) {

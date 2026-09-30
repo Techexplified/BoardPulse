@@ -1,25 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
-  <defs>
-    <linearGradient id="insight-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#579dff" />
-      <stop offset="100%" stop-color="#8546ff" />
-    </linearGradient>
-    <linearGradient id="inner-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#85b8ff" />
-    </linearGradient>
-  </defs>
-  <!-- Background Rounded Squircle -->
-  <rect x="2" y="2" width="44" height="44" rx="12" fill="#161b22" stroke="url(#insight-gradient)" stroke-width="2" />
-  
-  <!-- Outer Insight Eye Curve -->
-  <path d="M8 24C12 16 18 12 24 12C30 12 36 16 40 24C36 32 30 36 24 36C18 36 12 32 8 24Z" 
-        fill="none" 
-        stroke="url(#insight-gradient)" 
-        stroke-width="3" 
-        stroke-linejoin="round" />
-  
-  <!-- Center Pupil / Iris with Pulse -->
-  <circle cx="24" cy="24" r="5" fill="url(#inner-gradient)" />
-  <circle cx="26" cy="22" r="1.5" fill="#ffffff" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect x="3" y="21" width="6" height="8" rx="2" fill="#2563eb"/>
+  <rect x="13" y="13" width="6" height="16" rx="2" fill="#2563eb"/>
+  <rect x="23" y="3" width="6" height="26" rx="2" fill="#16a34a"/>
 </svg>
