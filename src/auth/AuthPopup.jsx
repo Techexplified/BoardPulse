@@ -130,7 +130,7 @@ export default function AuthPopup({ t }) {
         <div className="auth-success-circle">
           <CheckIcon width={26} height={26} />
         </div>
-<h3 className="auth-title">TEST VERSION 123</h3>        <p className="auth-subtitle" style={{ marginBottom: "16px" }}>
+<h3 className="auth-title"><h2>BoardPulse</h2></h3>        <p className="auth-subtitle" style={{ marginBottom: "16px" }}>
           Your Trello account is connected securely.
         </p>
      <button
