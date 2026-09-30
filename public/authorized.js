@@ -1,7 +1,7 @@
 
 (function () {
   const params = new URLSearchParams(window.location.hash.slice(1));
-  const token = params.get("token") || window.location.hash.slice(1);
+  const token = params.get("token");
 
   const titleEl = document.getElementById("status-title");
   const descEl = document.getElementById("status-desc");
